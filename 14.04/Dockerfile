@@ -15,6 +15,7 @@ RUN apt-get update && \
                     --no-install-recommends \
                     sudo \
                     libglu1-mesa:amd64 \
+                    fonts-noto \
                     dbus-x11 \
                     libxext-dev \
                     libxrender-dev \
