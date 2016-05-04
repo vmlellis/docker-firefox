@@ -8,3 +8,7 @@ docker run -it \
            --net=host \
            yongjhih/firefox
 ```
+
+```sh
+$ curl -L https://github.com/yongjhih/docker-firefox/raw/master/firefox > ~/bin/firefox && chmod a+x ~/bin/firefox
+$ firefox
