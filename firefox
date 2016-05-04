@@ -40,8 +40,8 @@ if [ -t 0 ]; then
 fi
 
                 #-w "$(pwd)" \
-                #$DOCKER_ADDR \
 exec docker run --rm $DOCKER_RUN_OPTIONS \
+                $DOCKER_ADDR \
                 $VOLUMES \
                 -v /dev/bus/usb:/dev/bus/usb \
                 -v /dev/kvm:/dev/kvm \
