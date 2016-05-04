@@ -28,7 +28,7 @@ if [ "$(pwd)" != '/' ]; then
     VOLUMES="-v $(pwd):$(pwd)"
 fi
 if [ -n "$HOME" ]; then
-    VOLUMES="$VOLUMES -v $HOME:$HOME -v $HOME:/root" # mount $HOME in /root to share docker.config
+    VOLUMES="$VOLUMES -v $HOME:$HOME -v $HOME:/root -v $HOME:/home/ubuntu" # mount $HOME in /root to share docker.config
 fi
 
 # Only allocate tty if we detect one
@@ -39,13 +39,18 @@ if [ -t 0 ]; then
     DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS -i"
 fi
 
-exec docker run --rm $DOCKER_RUN_OPTIONS $DOCKER_ADDR $VOLUMES \
+                #-w "$(pwd)" \
+exec docker run --rm $DOCKER_RUN_OPTIONS \
+                $DOCKER_ADDR \
+                $VOLUMES \
+                -v /dev/bus/usb:/dev/bus/usb \
+                -v /dev/kvm:/dev/kvm \
+                --privileged \
                 -e UID=$(id -u) \
                 -e GID=$(id -g) \
                 -e DISPLAY=$DISPLAY \
                 -v /tmp/.X11-unix:/tmp/.X11-unix \
                 -v $XAUTHORITY:/home/ubuntu/.Xauthority \
                 --net=host \
-                -w "$(pwd)" \
                 $IMAGE \
                 firefox "$@"
