@@ -2,6 +2,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/yongjhih/firefox.svg)](https://hub.docker.com/r/yongjhih/firefox/)
 [![Docker Size](https://img.shields.io/imagelayers/image-size/yongjhih/firefox/latest.svg)](https://imagelayers.io/?images=yongjhih/firefox:latest)
 [![Docker Layers](https://img.shields.io/imagelayers/layers/yongjhih/firefox/latest.svg)](https://imagelayers.io/?images=yongjhih/firefox:latest)
+[![Travis CI](https://img.shields.io/travis/yongjhih/docker-firefox.svg)](https://travis-ci.org/yongjhih/docker-firefox)
 
 ## Usage
 
