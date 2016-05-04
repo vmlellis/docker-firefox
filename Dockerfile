@@ -20,7 +20,6 @@ RUN apt-get update && \
                     libxext-dev \
                     libxrender-dev \
                     libxtst-dev \
-                    adobe-flashplugin \
                     firefox && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
