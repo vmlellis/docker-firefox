@@ -3,7 +3,8 @@ services: docker
 
 env:
   - VERSION=latest
-  - VERSION=xenial DOCKERDIR=xenial
+  - VERSION=14.04 DOCKERDIR=14.04
+  - VERSION=16.04 DOCKERDIR=16.04
 
 install:
   - git clone https://github.com/docker-library/official-images.git ~/official-images
