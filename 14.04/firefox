@@ -40,16 +40,22 @@ if [ -t 0 ]; then
 fi
 
                 #-w "$(pwd)" \
+                #--user=$(id -u) \
 exec docker run --rm $DOCKER_RUN_OPTIONS \
                 $DOCKER_ADDR \
                 $VOLUMES \
-                -v /dev/bus/usb:/dev/bus/usb \
-                -v /dev/kvm:/dev/kvm \
-                -v /dev/snd:/dev/snd \
+                -v /dev/bus/usb \
+                -v /dev/kvm \
+                -v /dev/snd \
+                -v /run/dbus \
+                -v /dev/shm \
+                -v /tmp/.X11-unix \
+                -v /run/user/$(id -u)/pulse \
                 -e UID=$(id -u) \
                 -e GID=$(id -g) \
                 -e DISPLAY=$DISPLAY \
-                -v /tmp/.X11-unix:/tmp/.X11-unix \
+                --group-add audio \
+                --group-add video \
                 -v $XAUTHORITY:/home/ubuntu/.Xauthority \
                 --net=host \
                 --privileged \

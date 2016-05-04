@@ -7,17 +7,13 @@
 
 ```sh
 docker run -it \
+           -v /tmp/.X11-unix \
            -e UID=$(id -u) \
            -e GID=$(id -g) \
            -e DISPLAY=$DISPLAY \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v $XAUTHORITY:/home/ubuntu/.Xauthority \
-           -e DISPLAY=$DISPLAY \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -v $XAUTHORITY:/home/ubuntu/.Xauthority \
-           --privileged \
-           -v /dev/snd:/dev/snd \
            --net=host \
+           --privileged \
            yongjhih/firefox:16.04
 ```
 

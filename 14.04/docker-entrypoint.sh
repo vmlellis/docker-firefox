@@ -8,5 +8,4 @@ groupmod -g $GID $USER > /dev/null 2>&1
 
 cd "/home/$USER"
 
-exec sudo -u $USER "$@"
-exec "$@"
+exec sudo -i -u $USER "$@"

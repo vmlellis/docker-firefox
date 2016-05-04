@@ -42,6 +42,7 @@ fi
 #echo -- --user `id -u`:`getent group video | cut -d: -f3`
 
                 #-w "$(pwd)" \
+                #--user=$(id -u) \
 exec docker run --rm $DOCKER_RUN_OPTIONS \
                 $DOCKER_ADDR \
                 $VOLUMES \
