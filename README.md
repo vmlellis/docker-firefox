@@ -11,4 +11,5 @@ docker run -it \
 
 ```sh
 $ curl -L https://github.com/yongjhih/docker-firefox/raw/master/firefox > ~/bin/firefox && chmod a+x ~/bin/firefox
-$ firefox
+$ ~/bin/firefox
+```
