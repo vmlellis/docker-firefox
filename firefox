@@ -40,8 +40,12 @@ if [ -t 0 ]; then
 fi
 
 exec docker run --rm $DOCKER_RUN_OPTIONS $DOCKER_ADDR $VOLUMES \
-           -e DISPLAY=$DISPLAY \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -v $XAUTHORITY:/home/ubuntu/.Xauthority \
-           --net=host \
-           -w "$(pwd)" $IMAGE firefox "$@"
+                -e UID=$(id -u) \
+                -e GID=$(id -g) \
+                -e DISPLAY=$DISPLAY \
+                -v /tmp/.X11-unix:/tmp/.X11-unix \
+                -v $XAUTHORITY:/home/ubuntu/.Xauthority \
+                --net=host \
+                -w "$(pwd)" \
+                $IMAGE \
+                firefox "$@"

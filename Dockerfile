@@ -10,6 +10,7 @@ ENV UID 1000
 RUN useradd -m -u $UID $USER && \
     echo "$USER ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-USER $USER
+Add docker-entrypoint.sh /
+ENTRYPOINT /docker-entrypoint.sh
 
-CMD /usr/bin/firefox
+CMD firefox
