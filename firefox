@@ -39,13 +39,6 @@ if [ -t 0 ]; then
     DOCKER_RUN_OPTIONS="$DOCKER_RUN_OPTIONS -i"
 fi
 
-xhost si:localuser:$USER
-
-# Set up PulseAudio Cookie
-if [ x"$(pax11publish -d)" = x ]; then
-    start-pulseaudio-x11
-fi
-
 #echo -- --user `id -u`:`getent group video | cut -d: -f3`
 
                 #-w "$(pwd)" \
@@ -58,10 +51,10 @@ exec docker run --rm $DOCKER_RUN_OPTIONS \
                 -v /run/dbus \
                 -v /dev/shm \
                 -v /tmp/.X11-unix \
+                -v /run/user/$(id -u)/pulse \
                 -e UID=$(id -u) \
                 -e GID=$(id -g) \
                 -e DISPLAY=$DISPLAY \
-                -e PULSE_SERVER=tcp:localhost:4713 \
                 --group-add audio \
                 --group-add video \
                 -v $XAUTHORITY:/home/ubuntu/.Xauthority \
