@@ -1,8 +1,15 @@
 FROM ubuntu
 
-# ia32-libs
+#                                               ia32-libs \
+#                                               libglu1-mesa:i386 \
+#                                               dbus-x11 \
+#                                               adobe-flashplugin \
+#                                               libxext-dev \
+#                                               libxrender-dev \
+#                                               libxtst-dev \
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends firefox libglu1-mesa:amd64 libglu1-mesa:i386 && \
+    apt-get install -y --no-install-recommends libglu1-mesa:amd64 \
+                                               firefox && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

@@ -45,12 +45,12 @@ exec docker run --rm $DOCKER_RUN_OPTIONS \
                 $VOLUMES \
                 -v /dev/bus/usb:/dev/bus/usb \
                 -v /dev/kvm:/dev/kvm \
-                --privileged \
+                -v /dev/snd:/dev/snd \
                 -e UID=$(id -u) \
                 -e GID=$(id -g) \
                 -e DISPLAY=$DISPLAY \
                 -v /tmp/.X11-unix:/tmp/.X11-unix \
                 -v $XAUTHORITY:/home/ubuntu/.Xauthority \
-                --net=host \
+                --privileged \
                 $IMAGE \
                 firefox "$@"
