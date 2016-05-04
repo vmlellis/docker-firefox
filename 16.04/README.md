@@ -12,6 +12,7 @@ docker run -it \
            -e GID=$(id -g) \
            -e DISPLAY=$DISPLAY \
            -v $XAUTHORITY:/home/ubuntu/.Xauthority \
+           -v $HOME/.mozilla:/home/ubuntu/.mozilla \
            --net=host \
            --privileged \
            yongjhih/firefox:16.04
