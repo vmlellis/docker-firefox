@@ -10,7 +10,7 @@
 
 set -e
 
-IMAGE="firefox"
+IMAGE="yongjhih/firefox"
 
 # Setup options for connecting to docker host
 if [ -z "$DOCKER_HOST" ]; then
