@@ -18,7 +18,7 @@ docker run -it \
            --privileged \
            -v /dev/snd:/dev/snd \
            --net=host \
-           yongjhih/firefox
+           yongjhih/firefox:14.04
 ```
 
 or
