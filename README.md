@@ -6,5 +6,5 @@ docker run -it
            -v /tmp/.X11-unix:/tmp/.X11-unix
            -v $XAUTHORITY:/home/ubuntu/.Xauthority
            --net=host
-           firefox
+           yongjhih/firefox
 ```
