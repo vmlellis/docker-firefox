@@ -24,3 +24,9 @@ or
 $ curl -L https://github.com/yongjhih/docker-firefox/raw/master/16.04/firefox > ~/bin/firefox && chmod a+x ~/bin/firefox-16.04
 $ ~/bin/firefox-16.04
 ```
+
+Private mode:
+
+```sh
+$ HOME= ~/bin/firefox-16.04
+```
